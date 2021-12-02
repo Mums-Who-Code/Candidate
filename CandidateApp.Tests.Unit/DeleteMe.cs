@@ -4,7 +4,7 @@
 
 using Xunit;
 
-namespace Candidate.Tests.Unit
+namespace CandidateApp.Tests.Unit
 {
     public class DeleteMe
     {

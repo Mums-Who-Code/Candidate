@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Candidate.ConsoleApp
+namespace CandidateApp.ConsoleApp
 {
     class Program
     {
