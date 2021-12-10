@@ -2,18 +2,15 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CandidateApp.ConsoleApp.Brokers.StorageBrokers;
+using CandidateApp.ConsoleApp.Models.Candidate;
 using CandidateApp.ConsoleApp.Services.Foundations.Candidates;
 using Moq;
+using Tynamix.ObjectFiller;
 
 namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 {
-    public class CandidateServiceTests
+    public partial class CandidateServiceTests
     {
         private readonly ICandidateService candidateService;
         private readonly Mock<IStorageBroker> storageBrokerMock;
@@ -25,5 +22,11 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             this.candidateService = new CandidateService(
                 this.storageBrokerMock.Object);
         }
+
+        private Candidate CreateRandomCandidate() =>
+            CreateCandidateFiller().Create();
+
+        private static Filler<Candidate> CreateCandidateFiller() =>
+          new Filler<Candidate>();
     }
 }
