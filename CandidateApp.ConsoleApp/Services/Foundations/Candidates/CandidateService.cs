@@ -16,6 +16,7 @@ namespace CandidateApp.ConsoleApp.Services.Foundations.Candidates
             this.storageBroker = storageBroker;
 
         public Candidate AddCandidate(Candidate candidate) =>
-            throw new NotImplementedException();
+            this.storageBroker.InsertCandidate(candidate);
+
     }
 }

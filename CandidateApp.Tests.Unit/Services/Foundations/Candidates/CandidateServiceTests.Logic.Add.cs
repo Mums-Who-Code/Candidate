@@ -4,6 +4,7 @@
 
 using CandidateApp.ConsoleApp.Models.Candidate;
 using FluentAssertions;
+using Force.DeepCloner;
 using Moq;
 using Xunit;
 
@@ -17,8 +18,8 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             // given
             Candidate randomCandidate = CreateRandomCandidate();
             Candidate inputCandidate = randomCandidate;
-            Candidate persistedCandidate = inputCandidate;
-            Candidate expectedCandidate = inputCandidate;
+            Candidate persistedCandidate = inputCandidate   ;
+            Candidate expectedCandidate = persistedCandidate.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>
                 broker.InsertCandidate(inputCandidate))
