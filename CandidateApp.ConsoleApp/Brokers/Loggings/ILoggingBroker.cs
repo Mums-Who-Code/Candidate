@@ -3,16 +3,11 @@
 // ------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CandidateApp.ConsoleApp.Brokers.Loggings
 {
     public interface ILoggingBroker
     {
         void LogError(Exception exception);
-
     }
 }

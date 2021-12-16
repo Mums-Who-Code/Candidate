@@ -3,10 +3,6 @@
 // ------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 namespace CandidateApp.ConsoleApp.Brokers.Loggings
@@ -19,6 +15,6 @@ namespace CandidateApp.ConsoleApp.Brokers.Loggings
             this.logger = logger;
 
         public void LogError(Exception exception) =>
-            this.logger.LogError(exception,exception.Message);
+            this.logger.LogError(exception, exception.Message);
     }
 }
