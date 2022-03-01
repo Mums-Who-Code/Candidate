@@ -2,7 +2,6 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using CandidateApp.ConsoleApp.Models.Candidate;
 using FluentAssertions;
 using Force.DeepCloner;
 using Moq;
@@ -18,7 +17,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             // given
             Candidate randomCandidate = CreateRandomCandidate();
             Candidate inputCandidate = randomCandidate;
-            Candidate persistedCandidate = inputCandidate   ;
+            Candidate persistedCandidate = inputCandidate;
             Candidate expectedCandidate = persistedCandidate.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>

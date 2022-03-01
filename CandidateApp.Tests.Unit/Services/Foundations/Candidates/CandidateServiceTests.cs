@@ -2,9 +2,6 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using CandidateApp.ConsoleApp.Brokers.StorageBrokers;
-using CandidateApp.ConsoleApp.Models.Candidate;
-using CandidateApp.ConsoleApp.Services.Foundations.Candidates;
 using Moq;
 using Tynamix.ObjectFiller;
 

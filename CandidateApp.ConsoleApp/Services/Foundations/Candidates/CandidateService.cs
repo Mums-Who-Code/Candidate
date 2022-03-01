@@ -2,7 +2,6 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using System;
 using CandidateApp.ConsoleApp.Brokers.StorageBrokers;
 using CandidateApp.ConsoleApp.Models.Candidate;
 
