@@ -2,11 +2,6 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using FluentAssertions;
-using Force.DeepCloner;
-using Moq;
-using Xunit;
-
 namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 {
     partial class CandidateServiceTests
