@@ -2,6 +2,9 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
+using Microsoft.Extensions.Logging;
+using System;
+
 namespace CandidateApp.ConsoleApp.Brokers.Loggings
 {
     class LoggingBroker : ILoggingBroker

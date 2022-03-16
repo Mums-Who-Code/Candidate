@@ -2,6 +2,16 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
+using CandidateApp.ConsoleApp.Brokers.Loggings;
+using CandidateApp.ConsoleApp.Brokers.StorageBrokers;
+using CandidateApp.ConsoleApp.Models.Candidate;
+using CandidateApp.ConsoleApp.Services.Foundations.Candidates;
+using Moq;
+using System;
+using System.Linq.Expressions;
+using Tynamix.ObjectFiller;
+using Xeptions;
+
 namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 {
     public partial class CandidateServiceTests
@@ -17,6 +27,12 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             this.candidateService = new CandidateService(
                 this.storageBrokerMock.Object,
                 this.loggingBrokerMock.Object);
+        }
+        private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)
+        {
+            return actualException =>
+                actualException.Message == expectedException.Message
+                && actualException.InnerException.Message == expectedException.InnerException.Message;
         }
 
         private Candidate CreateRandomCandidate() =>

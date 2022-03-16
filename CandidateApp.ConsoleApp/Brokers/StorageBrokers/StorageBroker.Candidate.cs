@@ -3,6 +3,7 @@
 // ------------------------------------------------
 
 using CandidateApp.ConsoleApp.Models.Candidate;
+using System.Collections.Generic;
 
 namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
 {

@@ -1,6 +1,7 @@
 ﻿// ------------------------------------------------
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
+using Xeptions;
 
 namespace CandidateApp.ConsoleApp.Models.Candidates.Exceptions
 {

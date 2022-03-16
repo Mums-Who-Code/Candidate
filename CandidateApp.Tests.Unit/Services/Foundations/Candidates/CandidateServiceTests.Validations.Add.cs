@@ -2,6 +2,13 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
+using CandidateApp.ConsoleApp.Models.Candidate;
+using CandidateApp.ConsoleApp.Models.Candidates.Exceptions;
+using Moq;
+using System;
+using System.Threading.Tasks;
+using Xunit;
+
 namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 {
     public partial class CandidateServiceTests
@@ -26,12 +33,13 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
                 broker.LogError(It.Is(SameExceptionAs(
                 expectedCandidateValidationException))),
                     Times.Once);
-        }
-        private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)
-        {
-            return actualException =>
-                actualException.Message == expectedException.Message
-                && actualException.InnerException.Message == expectedException.InnerException;
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.InsertCandidate(It.IsAny<Candidate>()),
+                Times.Never);
+
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
