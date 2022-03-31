@@ -41,5 +41,57 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("  ")]
+        public async Task ShouldThrowValidationExceptionOnAddIfCandidateIsInvalidAndLogit(
+            string invalidText)
+        {
+
+            // given
+            Candidate invalidCandidate = new Candidate
+            {
+                FirstName = invalidText,
+                LastName = invalidText,
+
+            };
+
+            var invalidCandidateException = new InvalidCandidateException();
+
+            invalidCandidateException.AddData(
+                key: nameof(Candidate.Id),
+                values: "Id is required,");
+
+            invalidCandidateException.AddData(
+                key: nameof(Candidate.FirstName),
+                values: "First name is required.");
+
+            invalidCandidateException.AddData(
+                key: nameof(Candidate.LastName),
+                values: "Last name is required.");
+
+            var expectedCandidateValidationException = 
+                new CandidateValidationException(invalidCandidateException);
+
+            // when
+            Action addCandidateAction = () => this.candidateService.AddCandidate(invalidCandidate);
+            
+            // then
+            Assert.Throws<CandidateValidationException>(addCandidateAction);
+
+            this.loggingBrokerMock.Verify(broker =>
+                 broker.LogError(It.Is(SameExceptionAs(
+                 expectedCandidateValidationException))),
+                     Times.Once);
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.InsertCandidate(It.IsAny<Candidate>()),
+                Times.Never);
+
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
