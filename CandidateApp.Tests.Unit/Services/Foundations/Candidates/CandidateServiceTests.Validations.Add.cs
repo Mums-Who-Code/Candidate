@@ -14,7 +14,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
     public partial class CandidateServiceTests
     {
         [Fact]
-        public async Task ShouldThrowValidationExceptionOnAddIfCandidateIsNullAndLogit()
+        public void ShouldThrowValidationExceptionOnAddIfCandidateIsNullAndLogit()
         {
             //given
             Candidate nullCandidate = null;
@@ -46,7 +46,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
         [InlineData(null)]
         [InlineData("")]
         [InlineData("  ")]
-        public async Task ShouldThrowValidationExceptionOnAddIfCandidateIsInvalidAndLogit(
+        public void ShouldThrowValidationExceptionOnAddIfCandidateIsInvalidAndLogit(
             string invalidText)
         {
 
