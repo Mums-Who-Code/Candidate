@@ -19,14 +19,18 @@ namespace CandidateApp.ConsoleApp.Services.Foundations.Candidates
 
         private Candidate TryCatch(ReturningCandidateFunction returningCandidateFunction)
         {
-            try 
-	        {	      
+            try
+            {
                 return returningCandidateFunction();
-	        }
-	        catch (NullCandidateException nullCandidateException)
-	        {
+            }
+            catch (NullCandidateException nullCandidateException)
+            {
                 throw CreateAndLogValidationExcecption(nullCandidateException);
-	        }
+            }
+            catch (InvalidCandidateException invalidCandidateException)
+            {
+                throw CreateAndLogValidationExcecption(invalidCandidateException);
+            }
         }
 
         private CandidateValidationException CreateAndLogValidationExcecption(Xeption exception)

@@ -66,11 +66,11 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 
             invalidCandidateException.AddData(
                 key: nameof(Candidate.FirstName),
-                values: "First name is required.");
+                values: "Text is required.");
 
             invalidCandidateException.AddData(
                 key: nameof(Candidate.LastName),
-                values: "Last name is required.");
+                values: "Text is required.");
 
             var expectedCandidateValidationException = 
                 new CandidateValidationException(invalidCandidateException);
