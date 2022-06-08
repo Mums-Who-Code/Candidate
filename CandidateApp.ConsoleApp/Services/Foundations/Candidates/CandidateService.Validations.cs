@@ -5,10 +5,6 @@
 using CandidateApp.ConsoleApp.Models.Candidate;
 using CandidateApp.ConsoleApp.Models.Candidates.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CandidateApp.ConsoleApp.Services.Foundations.Candidates
 {
@@ -27,14 +23,15 @@ namespace CandidateApp.ConsoleApp.Services.Foundations.Candidates
         private static dynamic IsInvalid(int id) => new
         {
             Condition = id == default,
-            Message = "Id is required."
+            Message = "Id is required.",
         };
 
         private static dynamic IsInvalid(string name) => new
         {
             Condition = String.IsNullOrWhiteSpace(name),
-            Message = "Text is required.", 
+            Message = "Text is required.",
         };
+
 
         private static void ValidateCandidateIsNotNull(Candidate candidate)
         {
@@ -44,13 +41,13 @@ namespace CandidateApp.ConsoleApp.Services.Foundations.Candidates
             }
         }
 
-        public static void Validate(params(dynamic Rule, string Parameter)[] validations)
+        public static void Validate(params (dynamic Rule, string Parameter)[] validations)
         {
             var invalidCandidateException = new InvalidCandidateException();
 
-            foreach((dynamic rule, string parameter) in validations)
+            foreach ((dynamic rule, string parameter) in validations)
             {
-                if(rule.Condition)
+                if (rule.Condition)
                 {
                     invalidCandidateException.UpsertDataList(
                         key: parameter,

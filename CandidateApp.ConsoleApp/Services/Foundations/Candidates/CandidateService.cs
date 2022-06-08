@@ -5,7 +5,6 @@
 using CandidateApp.ConsoleApp.Brokers.Loggings;
 using CandidateApp.ConsoleApp.Brokers.StorageBrokers;
 using CandidateApp.ConsoleApp.Models.Candidate;
-using CandidateApp.ConsoleApp.Models.Candidates.Exceptions;
 
 namespace CandidateApp.ConsoleApp.Services.Foundations.Candidates
 {

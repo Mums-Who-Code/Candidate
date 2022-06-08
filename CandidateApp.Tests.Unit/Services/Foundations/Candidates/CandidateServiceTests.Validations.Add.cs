@@ -6,7 +6,6 @@ using CandidateApp.ConsoleApp.Models.Candidate;
 using CandidateApp.ConsoleApp.Models.Candidates.Exceptions;
 using Moq;
 using System;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
@@ -55,14 +54,13 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             {
                 FirstName = invalidText,
                 LastName = invalidText,
-
             };
 
             var invalidCandidateException = new InvalidCandidateException();
 
             invalidCandidateException.AddData(
                 key: nameof(Candidate.Id),
-                values: "Id is required,");
+                values: "Id is required.");
 
             invalidCandidateException.AddData(
                 key: nameof(Candidate.FirstName),
@@ -72,12 +70,12 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
                 key: nameof(Candidate.LastName),
                 values: "Text is required.");
 
-            var expectedCandidateValidationException = 
+            var expectedCandidateValidationException =
                 new CandidateValidationException(invalidCandidateException);
 
             // when
             Action addCandidateAction = () => this.candidateService.AddCandidate(invalidCandidate);
-            
+
             // then
             Assert.Throws<CandidateValidationException>(addCandidateAction);
 
