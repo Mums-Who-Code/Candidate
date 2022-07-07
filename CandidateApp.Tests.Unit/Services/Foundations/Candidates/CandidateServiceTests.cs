@@ -28,6 +28,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
                 this.storageBrokerMock.Object,
                 this.loggingBrokerMock.Object);
         }
+
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)
         {
             return actualException =>

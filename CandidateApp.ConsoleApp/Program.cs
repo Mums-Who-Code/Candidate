@@ -7,7 +7,6 @@ using CandidateApp.ConsoleApp.Brokers.StorageBrokers;
 using CandidateApp.ConsoleApp.Models.Candidate;
 using CandidateApp.ConsoleApp.Services.Foundations.Candidates;
 using Microsoft.Extensions.Logging;
-using System;
 
 namespace CandidateApp.ConsoleApp
 {
@@ -19,7 +18,7 @@ namespace CandidateApp.ConsoleApp
             var loggerFactory = new LoggerFactory();
             var logger = new Logger<LoggingBroker>(loggerFactory);
             var loggingBroker = new LoggingBroker(logger);
-            var candidateService = new CandidateService(storageBroker,loggingBroker);
+            var candidateService = new CandidateService(storageBroker, loggingBroker);
 
             var inputCandidate = new Candidate
             {

@@ -10,7 +10,7 @@ namespace CandidateApp.ConsoleApp.Models.Candidates.Exceptions
     public class CandidateServiceException : Xeption
     {
         public CandidateServiceException(Exception innerException)
-            : base(message: "Candidate service exception error occurred, contact support.",
+            : base(message: "Candidate service error occurred, contact support.",
                  innerException)
         { }
     }

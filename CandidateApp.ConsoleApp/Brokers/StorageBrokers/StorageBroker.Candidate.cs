@@ -17,8 +17,7 @@ namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
 
             return candidate;
         }
-
         public List<Candidate> SelectAllCandidates() => Candidates;
-        
+
     }
 }

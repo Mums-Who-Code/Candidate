@@ -9,7 +9,7 @@ namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
 {
     public partial interface IStorageBroker
     {
-       Candidate InsertCandidate(Candidate candidate);
+        Candidate InsertCandidate(Candidate candidate);
 
         List<Candidate> SelectAllCandidates();
     }

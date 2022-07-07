@@ -30,12 +30,12 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 
             this.loggingBrokerMock.Verify(broker =>
                 broker.LogError(It.Is(SameExceptionAs(
-                expectedCandidateValidationException))),
+                    expectedCandidateValidationException))),
                     Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.InsertCandidate(It.IsAny<Candidate>()),
-                Times.Never);
+                    Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
@@ -48,7 +48,6 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
         public void ShouldThrowValidationExceptionOnAddIfCandidateIsInvalidAndLogit(
             string invalidText)
         {
-
             // given
             Candidate invalidCandidate = new Candidate
             {

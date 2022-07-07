@@ -27,9 +27,9 @@ namespace CandidateApp.ConsoleApp.Services.Foundations.Candidates
             {
                 throw CreateAndLogValidationExcecption(invalidCandidateException);
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
-                var failedCandidateServiceException = 
+                var failedCandidateServiceException =
                     new FailedCandidateServiceException(exception);
 
                 throw CreateAndLogServiceException(failedCandidateServiceException);

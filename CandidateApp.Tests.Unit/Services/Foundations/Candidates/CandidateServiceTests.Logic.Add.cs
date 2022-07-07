@@ -23,7 +23,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 
             this.storageBrokerMock.Setup(broker =>
                 broker.InsertCandidate(inputCandidate))
-                .Returns(persistedCandidate);
+                    .Returns(persistedCandidate);
 
             // when
             Candidate actualCandidate = this.candidateService.AddCandidate(inputCandidate);
@@ -32,7 +32,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             actualCandidate.Should().BeEquivalentTo(expectedCandidate);
 
             this.storageBrokerMock.Verify(broker =>
-            broker.InsertCandidate(inputCandidate),
+                broker.InsertCandidate(inputCandidate),
                         Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
