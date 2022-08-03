@@ -49,7 +49,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             string invalidText)
         {
             // given
-            Candidate invalidCandidate = new Candidate
+            var invalidCandidate = new Candidate
             {
                 FirstName = invalidText,
                 LastName = invalidText,

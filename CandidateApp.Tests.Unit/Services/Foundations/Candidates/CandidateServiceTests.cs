@@ -25,8 +25,8 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
             this.storageBrokerMock = new Mock<IStorageBroker>();
             this.loggingBrokerMock = new Mock<ILoggingBroker>();
             this.candidateService = new CandidateService(
-                this.storageBrokerMock.Object,
-                this.loggingBrokerMock.Object);
+                storageBroker: this.storageBrokerMock.Object,
+                loggingBroker: this.loggingBrokerMock.Object);
         }
 
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)
