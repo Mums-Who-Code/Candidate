@@ -2,8 +2,8 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using CandidateApp.ConsoleApp.Models.Candidate;
 using System.Collections.Generic;
+using CandidateApp.ConsoleApp.Models.Candidate;
 
 namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
 {
@@ -18,6 +18,5 @@ namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
             return candidate;
         }
         public List<Candidate> SelectAllCandidates() => Candidates;
-
     }
 }
