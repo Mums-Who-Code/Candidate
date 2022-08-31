@@ -2,10 +2,10 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
+using System;
 using CandidateApp.ConsoleApp.Models.Candidate;
 using CandidateApp.ConsoleApp.Models.Candidates.Exceptions;
 using Moq;
-using System;
 using Xunit;
 
 namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
@@ -38,7 +38,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
 
             this.storageBrokerMock.Verify(broker =>
                 broker.InsertCandidate(It.IsAny<Candidate>()),
-                Times.Once);
+                    Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
                  broker.LogError(It.Is(SameExceptionAs(

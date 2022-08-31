@@ -36,8 +36,7 @@ namespace CandidateApp.Tests.Unit.Services.Foundations.Candidates
                         Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
-
-
+            this.loggingBrokerMock.VerifyNoOtherCalls();
         }
     }
 }

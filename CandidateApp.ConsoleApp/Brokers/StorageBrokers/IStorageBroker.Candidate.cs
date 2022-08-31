@@ -5,7 +5,6 @@
 using System.Collections.Generic;
 using CandidateApp.ConsoleApp.Models.Candidate;
 
-
 namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
 {
     public partial interface IStorageBroker
