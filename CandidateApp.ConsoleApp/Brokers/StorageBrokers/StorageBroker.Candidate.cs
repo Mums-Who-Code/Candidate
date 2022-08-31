@@ -7,7 +7,7 @@ using CandidateApp.ConsoleApp.Models.Candidate;
 
 namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
 {
-    partial class StorageBroker : IStorageBroker
+    public partial class StorageBroker : IStorageBroker
     {
         List<Candidate> Candidates = new List<Candidate>();
 
@@ -17,5 +17,6 @@ namespace CandidateApp.ConsoleApp.Brokers.StorageBrokers
 
             return candidate;
         }
+        public List<Candidate> SelectAllCandidates() => Candidates;
     }
 }
